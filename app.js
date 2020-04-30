@@ -16,17 +16,16 @@ var campgroundRoutes = require("./routes/campgrounds"),
 	commentRoutes    = require("./routes/comments"),
 	indexRoutes		 = require("./routes/index");
 
-mongoose.connect('mongodb://nitin:nitin1979@ds159574.mlab.com:59574/prepzone');
-// mongoose.connect("mongodb+srv://Mongod:Sara%402003@cluster0-rrz9x.mongodb.net/test?retryWrites=true&w=majority" , { 
-//     useNewUrlParser: true, 
-//     useCreateIndex:true , 
-//     useUnifiedTopology: true, 
-//     useFindAndModify: false 
-// }).then(()=>{
-//     console.log("connected to DB");
-// }).catch(err => { 
-//     console.log("ERROR: " , err.message);
-// });
+mongoose.connect("mongodb+srv://Mongod:Sara%402003@cluster0-rrz9x.mongodb.net/test?retryWrites=true&w=majority" , { 
+    useNewUrlParser: true, 
+    useCreateIndex:true , 
+    useUnifiedTopology: true, 
+    useFindAndModify: false 
+}).then(()=>{
+    console.log("connected to DB");
+}).catch(err => { 
+    console.log("ERROR: " , err.message);
+});
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.set("view engine" , "ejs");
