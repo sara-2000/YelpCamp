@@ -26,6 +26,7 @@ mongoose.connect("mongodb+srv://Mongod:Sara%402003@cluster0-rrz9x.mongodb.net/te
 }).catch(err => { 
     console.log("ERROR: " , err.message);
 });
+
 app.use(bodyParser.urlencoded({extended : true}));
 app.set("view engine" , "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -57,6 +58,6 @@ app.use("/" , indexRoutes);
 app.use("/campgrounds" , campgroundRoutes);
 app.use("/campgrounds/:id/comments" , commentRoutes);
 
-app.listen(process.env.PORT , function(){
+app.listen(process.env.PORT, process.env.IP , function(){
 	console.log("YelpCamp server has started");
 });
