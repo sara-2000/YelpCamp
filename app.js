@@ -16,7 +16,18 @@ var campgroundRoutes = require("./routes/campgrounds"),
 	commentRoutes    = require("./routes/comments"),
 	indexRoutes		 = require("./routes/index");
 
-mongoose.connect(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp;"
+
+mongoose.connect(url , { 
+    useNewUrlParser: true, 
+    useCreateIndex:true , 
+    useUnifiedTopology: true, 
+    useFindAndModify: false 
+}).then(()=>{
+    console.log("connected to DB");
+}).catch(err => { 
+    console.log("ERROR: " , err.message);
+}); 
 
 //wrote export DATABASEURL=mongodb://localhost:27017/yelp_camp in cli
 //mongoose.connect("mongodb://localhost:27017/yelp_camp" , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
